@@ -22,9 +22,9 @@ public class DbUtilities {
 
     private Connection conn = null; // connection object
     private String hostName = "sis-teach-01.sis.pitt.edu:3306"; // server address + port number
-    private String dbName = "dmb72_bank1017"; // default database name
-    private String dbUserName = "testUser"; // login name for the database server
-    private String dbPassword = "test123@"; // password for the database server
+    private String dbName = "srp63_bank1017"; // default database name
+    private String dbUserName = "srp63"; // login name for the database server
+    private String dbPassword = "3669488"; // password for the database server
 
     /**
      * Default constructor creates a connection to database at the time of instantiation.

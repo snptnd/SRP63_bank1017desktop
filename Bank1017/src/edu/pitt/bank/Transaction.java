@@ -1,9 +1,12 @@
 package edu.pitt.bank;
 
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.UUID;
+
+import com.mysql.jdbc.Statement;
 
 import edu.pitt.utilities.DbUtilities;
 
@@ -33,7 +36,9 @@ public class Transaction {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}
+		} 
+
+		
 	}
 	
 	public Transaction(String accountID, String type, double amount, double balance){

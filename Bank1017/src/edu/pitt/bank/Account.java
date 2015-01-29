@@ -8,8 +8,25 @@ import java.util.UUID;
 
 import edu.pitt.utilities.DbUtilities;
 
+
+/**
+ * 
+ * @author Sean Patnode
+ * @version 0.02
+ * Creates multiple objects of type Account that are read from the result set.
+ * @param accountID a string which holds the ID number to uniquely identify this object.
+ * @param type distinguishes the account type between checking and savings.
+ * @param balace a double which reflects the database value of the amount that this record contains.
+ * @param interestRate a double which holds the interest rate for this account, assuming it is a savings account. 
+ * @param penalty a double which holds the amount charged for overdrafts.
+ * @param status a String which delineates whether the account is open.
+ * @param dateOpen a Date which holds the date that the account was created.
+ * @param transactionList an ArrayList which holds objects of type Transaction for later use
+ * @param AccountOwners an ArrayList which holds objects of type Customer for later use
+ */
 public class Account {
 	private String accountID;
+	private String transactionID;
 	private String type;
 	private double balance;
 	private double interestRate;
@@ -38,8 +55,26 @@ public class Account {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		String sql2 = "SELECT * FROM bank1017.transaction ";
+		sql2 += "WHERE accountID = '" + accountID + "'";
+		System.out.println(sql2);
+		try {
+			ResultSet rs = db.getResultSet(sql2);
+			while(rs.next()){
+				this.transactionID = rs.getString("transactionID");
+				createTransaction(transactionID);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 	}
-	
+	/*
+	 * Overloads the above method and creates an object of type account which is inserted into the database.
+	 * 
+	 */
 	public Account(String accountType, double initialBalance){
 		this.accountID = UUID.randomUUID().toString();
 		this.type = accountType;
@@ -62,6 +97,10 @@ public class Account {
 		
 		DbUtilities db = new DbUtilities();
 		db.executeQuery(sql);
+	}
+	
+	void addAccountOwner(Customer accountOwner){
+		accountOwners.add(accountOwner);
 	}
 	
 	

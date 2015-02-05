@@ -36,7 +36,7 @@ public class Transaction {
 	private Date transactionDate; 
 	
 	public Transaction(String transactionID){
-		String sql = "SELECT * FROM bank1017.transaction "; 
+		String sql = "SELECT * FROM srp63_bank1017.transaction "; 
 		sql += "WHERE transactionID = '" + transactionID + "'";
 		System.out.println(sql);
 		MySqlUtilities db = new MySqlUtilities();

@@ -40,7 +40,7 @@ public class Account {
 	private ArrayList<Customer> accountOwners = new ArrayList<Customer>();
 	
 	public Account(String accountID){
-		String sql = "SELECT * FROM bank1017.account "; 
+		String sql = "SELECT * FROM srp63_bank1017.account "; 
 		sql += "WHERE accountID = '" + accountID + "'";
 		MySqlUtilities db = new MySqlUtilities();
 		try {
@@ -58,8 +58,8 @@ public class Account {
 			e.printStackTrace();
 		}
 		
-		String sql2 = "SELECT * FROM bank1017.transaction ";
-		sql2 += "WHERE accountID = '" + accountID + "'";
+		String sql2 = "SELECT * FROM srp63_bank1017.transaction ";
+		sql2 += "WHERE accountID = '" + accountID + "';";
 		System.out.println(sql2);
 		try {
 			ResultSet rs = db.getResultSet(sql2);
@@ -87,7 +87,7 @@ public class Account {
 		this.setStatus("active");
 		this.setDateOpen(new Date());
 		
-		String sql = "INSERT INTO bank1017.account ";
+		String sql = "INSERT INTO srp63_bank1017.account ";
 		sql += "(accountID,type,balance,interestRate,penalty,status,dateOpen) ";
 		sql += " VALUES ";
 		sql += "('" + this.accountID + "', ";
@@ -121,7 +121,7 @@ public class Account {
 	}
 	
 	private void updateDatabaseAccountBalance(){
-		String sql = "UPDATE bank1017.account SET balance = " + this.getBalance() + " ";
+		String sql = "UPDATE srp63_bank1017.account SET balance = " + this.getBalance() + " ";
 		sql += "WHERE accountID = '" + this.accountID + "';";
 		
 		MySqlUtilities db = new MySqlUtilities();

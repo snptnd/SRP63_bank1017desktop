@@ -27,7 +27,7 @@ public class Bank {
 	}
 	
 	void loadAccounts() {
-		String sql = "SELECT accountID FROM bank1017.account";
+		String sql = "SELECT accountID FROM srp63_bank1017.account";
 		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
@@ -82,7 +82,7 @@ public class Bank {
 	}
 
 	void setAccountOwners() {
-		String sql = "SELECT cutomerID FROM bank1017.customer;";
+		String sql = "SELECT cutomerID FROM srp63_bank1017.customer;";
 		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);

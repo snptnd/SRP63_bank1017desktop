@@ -13,21 +13,23 @@ import edu.pitt.bank.Transaction;
 public class TransactionUI extends JFrame {
 	public TransactionUI(Account userAccount) {
 		getContentPane().setLayout(null);
+		this.setSize(500, 300);
+		this.setLocation(210, 210);
 		
 		userAccount.getTransactionList();
 		JTextArea textArea = new JTextArea(""
 				+ "Type"
-				+ "\t\t" 
+				+ "\t" 
 				+ "Date"
-				+ "\t\t" 
+				+ "\t" 
 				+ "Amount"
 				+ "\n");
 		for (Transaction t : userAccount.getTransactionList()) {
 			textArea.setText(textArea.getText() 
 					+ t.getType() 
-					+ "\t\t" 
+					+ "\t" 
 					+ t.getTransactionDate()
-					+ "\t\t" 
+					+ "\t" 
 					+ t.getAmount()
 					+ "\n");
 	       }

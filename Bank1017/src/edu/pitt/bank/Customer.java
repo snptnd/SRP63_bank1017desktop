@@ -35,11 +35,12 @@ public class Customer {
 	private String pin;
 	
 	public Customer(String customerID){
-		String sql = "SELECT * FROM bank1017.customer ";
-		sql += "WHERE customerID = '" + customerID + "'";
+		String sql = "SELECT * FROM srp63_bank1017.customer ";
+		sql += "WHERE customerID = '" + customerID + "';";
 		System.out.println(sql);
 		MySqlUtilities db = new MySqlUtilities();
 		try {
+			if(customerID != null){
 			ResultSet rs = db.getResultSet(sql);
 			while(rs.next()){
 				this.customerID = rs.getString("customerID");
@@ -52,6 +53,8 @@ public class Customer {
 				this.setZip(rs.getString("zip"));
 				this.setLoginName(rs.getString("loginName"));
 				this.pin = rs.getString("pin");
+				}
+			}else{
 				
 			}
 		} catch (SQLException e) {
@@ -72,7 +75,7 @@ public class Customer {
 		this.setState(state);
 		this.setZip(Integer.toString(zip));
 		
-		String sql = "INSERT INTO bank1017.transaction ";
+		String sql = "INSERT INTO srp63_bank1017.transaction ";
 		sql += "(customerID, lastName, firstName, ssn, loginName, pin) ";
 		sql += " VALUES ";
 		sql += "('" + this.customerID + "', ";

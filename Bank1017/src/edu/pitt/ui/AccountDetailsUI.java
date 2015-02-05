@@ -19,6 +19,8 @@ public class AccountDetailsUI extends JFrame {
 	Account userAccount = new Account(null);
 	public AccountDetailsUI(final Customer c) {
 		getContentPane().setLayout(null);
+		this.setSize(500, 300);
+		this.setLocation(200, 200);
 		
 		JLabel lblNewLabel = new JLabel(c.getFirstName() + " " + c.getLastName() + " , welcome to 1017 bank. You have the following permissions in");
 		lblNewLabel.setBounds(30, 11, 382, 14);
@@ -27,18 +29,17 @@ public class AccountDetailsUI extends JFrame {
 		JLabel lblThisSystemAdministrator = new JLabel("this system; Administrator, Branch Manager, Customer");
 		lblThisSystemAdministrator.setBounds(30, 27, 327, 14);
 		getContentPane().add(lblThisSystemAdministrator);
-		
-		userAccount = new Account(c.getCustomerID());
+		System.out.println(c.getCustomerID());
 		JComboBox<String> comboBox = new JComboBox<String>();// may need to be of type customer or changed to string...
 		comboBox.setBounds(118, 63, 239, 20);
 		getContentPane().add(comboBox);
 		for(int i = 0; i < userAccount.getAccountOwners().size(); i++)
 		{
-		 comboBox.addItem(userAccount.getAccountOwners().get(i).toString());
+		 comboBox.addItem(userAccount.getAccountOwners().get(i).getCustomerID());//toString());
 		}
 		
 		JLabel lblYourAccounts = new JLabel("Your accounts:");
-		lblYourAccounts.setBounds(30, 66, 78, 14);
+		lblYourAccounts.setBounds(30, 66, 127, 14);
 		getContentPane().add(lblYourAccounts);
 		
 		JLabel lblAccountType = new JLabel("Account type: " + userAccount.getType());

@@ -1,5 +1,6 @@
 package edu.pitt.ui;
 
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -11,6 +12,9 @@ import javax.swing.JLabel;
 
 import edu.pitt.bank.Security;
 import edu.pitt.ui.AccountDetailsUI;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.Dimension;
 
 public class LoginUI extends JFrame {
 	/**
@@ -21,6 +25,8 @@ public class LoginUI extends JFrame {
 	private JTextField txtPass;
 	public LoginUI() {
 		getContentPane().setLayout(null);
+		this.setSize(500, 300);
+		this.setLocation(200, 200);
 		
 		JButton btnLogin = new JButton("Login");
 		btnLogin.setBounds(209, 210, 89, 23);
@@ -41,12 +47,13 @@ public class LoginUI extends JFrame {
 		txtPass.setColumns(10);
 		
 		JLabel lblNewLabel = new JLabel("Login Name:");
-		lblNewLabel.setBounds(46, 63, 69, 14);
+		lblNewLabel.setBounds(46, 63, 86, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblPassword = new JLabel("Password:");
-		lblPassword.setBounds(46, 106, 69, 14);
+		lblPassword.setBounds(46, 106, 86, 14);
 		getContentPane().add(lblPassword);
+		
 		
 		btnLogin.addActionListener(new ActionListener(){
 			@Override
@@ -55,8 +62,8 @@ public class LoginUI extends JFrame {
 				sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText()));
 				if(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())) != null){
 					AccountDetailsUI adUI = new AccountDetailsUI(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())));
+					setVisible(false);
 					adUI.setVisible(true);
-					getContentPane().setVisible(false);
 				}else{
 					JOptionPane.showMessageDialog(null, "invalid account credintials");
 				}

@@ -17,17 +17,18 @@ public class Security {
 	 */
 	
 	public Customer validateLogin(String loginName, int pin){
-		String sql = "SELECT * FROM bank1017.customer ";
+		String sql = "SELECT * FROM srp63_bank1017.customer ";
 		sql += "WHERE loginName = '" + loginName + "' ";
 		sql += "and pin = " + pin + ";";
 		Customer foundCustomer = new Customer(null);
 		@SuppressWarnings("unused")
 		boolean foundMatch = false;
+		System.out.println(sql);
 		
 		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
-			if(rs != null){
+			if(rs.next() && rs != null){
 				foundCustomer = new Customer(rs.getString("customerID"));
 				foundMatch = true;
 			}else {

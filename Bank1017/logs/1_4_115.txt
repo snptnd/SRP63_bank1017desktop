@@ -1,0 +1,4 @@
+Thu Feb 05 00:15:10 EST 2015|SELECT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'customer'
+Thu Feb 05 00:15:10 EST 2015|SELECT * FROM bank1017.customer WHERE customerID = 'null'
+Thu Feb 05 00:16:43 EST 2015|SELECT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'customer'
+Thu Feb 05 00:16:43 EST 2015|SELECT * FROM bank1017.customer WHERE customerID = 'null'

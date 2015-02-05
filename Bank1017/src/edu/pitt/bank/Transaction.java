@@ -8,7 +8,24 @@ import java.util.UUID;
 
 import com.mysql.jdbc.Statement;
 
-import edu.pitt.utilities.DbUtilities;
+import edu.pitt.utilities.MySqlUtilities;
+
+/**
+ * 
+ * this class is used to create objects of type transaction. New transactions can be inserted 
+ * into the database.
+ * 
+ * @param transactionID string for unique identifier for transaction object
+ * @param accountID String for ID of account the transaction is affecting
+ * @param type String type of transaction (withdrawl/deposit).
+ * @param amount String for amount withdrawn or deposited.
+ * @param balance String for the balance at the time of the transaction.
+ * @param transactionDate Date which holds the date that the transaction object was instantiated
+ * @param state state that customer lives in
+ * @param zip string that holds zip code of where customer lives
+ * @param loginName a string which holds the username of the customers account
+ * @param pin a String which holds the pin for the customer's account
+ */
 
 public class Transaction {
 	private String transactionID;
@@ -22,7 +39,7 @@ public class Transaction {
 		String sql = "SELECT * FROM bank1017.transaction "; 
 		sql += "WHERE transactionID = '" + transactionID + "'";
 		System.out.println(sql);
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while(rs.next()){
@@ -60,7 +77,31 @@ public class Transaction {
 		
 		//System.out.println(sql);
 		
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		db.executeQuery(sql);
+	}
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public double getAmount() {
+		return amount;
+	}
+
+	public void setAmount(double amount) {
+		this.amount = amount;
+	}
+
+	public Date getTransactionDate() {
+		return transactionDate;
+	}
+
+	public void setTransactionDate(Date transactionDate) {
+		this.transactionDate = transactionDate;
 	}
 }

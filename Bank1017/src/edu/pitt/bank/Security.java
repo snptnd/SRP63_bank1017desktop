@@ -4,10 +4,17 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-import edu.pitt.utilities.DbUtilities;
+import edu.pitt.utilities.MySqlUtilities;
 
 public class Security {
 
+	/**
+	 * 
+	 * this class is used to check if the entered username and pin
+	 * match a record in the database. If a record is found and the pin 
+	 * matches then a value of true is returned.
+	 * 
+	 */
 	
 	public Customer validateLogin(String loginName, int pin){
 		String sql = "SELECT * FROM bank1017.customer ";
@@ -17,7 +24,7 @@ public class Security {
 		@SuppressWarnings("unused")
 		boolean foundMatch = false;
 		
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			if(rs != null){

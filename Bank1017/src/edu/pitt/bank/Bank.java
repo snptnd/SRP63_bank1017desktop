@@ -6,7 +6,15 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
-import edu.pitt.utilities.DbUtilities;
+import edu.pitt.utilities.MySqlUtilities;
+
+/**
+ * 
+ * this class loads info for account objects and customer objects to be held in array Lists
+ * 
+ * @param accountList an Array List which holds objects of type account. used in loadAccounts()
+ * @param customerList an Array List which holds objects of type customer. used in setAccountOwners()
+ */
 
 public class Bank {
 
@@ -20,7 +28,7 @@ public class Bank {
 	
 	void loadAccounts() {
 		String sql = "SELECT accountID FROM bank1017.account";
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while (rs.next()) {
@@ -75,7 +83,7 @@ public class Bank {
 
 	void setAccountOwners() {
 		String sql = "SELECT cutomerID FROM bank1017.customer;";
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while (rs.next()) {

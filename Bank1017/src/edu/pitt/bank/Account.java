@@ -1,4 +1,5 @@
 package edu.pitt.bank;
+import edu.pitt.utilities.ErrorLogger;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -6,7 +7,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.UUID;
 
-import edu.pitt.utilities.DbUtilities;
+import javax.swing.JOptionPane;
+
+import edu.pitt.utilities.MySqlUtilities;
 
 
 /**
@@ -39,20 +42,19 @@ public class Account {
 	public Account(String accountID){
 		String sql = "SELECT * FROM bank1017.account "; 
 		sql += "WHERE accountID = '" + accountID + "'";
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while(rs.next()){
 				this.accountID = rs.getString("accountID");
-				this.type = rs.getString("type");
-				this.balance = rs.getDouble("balance");
-				this.interestRate = rs.getDouble("interestRate");
-				this.penalty = rs.getDouble("penalty");
-				this.status = rs.getString("status");
-				this.dateOpen = new Date();
+				this.setType(rs.getString("type")); 
+				this.setBalance(rs.getDouble("balance"));
+				this.setInterestRate(rs.getDouble("interestRate"));
+				this.setPenalty(rs.getDouble("penalty"));
+				this.setStatus(rs.getString("status"));
+				this.setDateOpen(new Date());
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -66,8 +68,9 @@ public class Account {
 				createTransaction(transactionID);
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
+			ErrorLogger.log(e.getMessage());
+			//JOptionPane.showMessageDialog(null, "invalid SQL query");
 		}
 		
 	}
@@ -77,63 +80,63 @@ public class Account {
 	 */
 	public Account(String accountType, double initialBalance){
 		this.accountID = UUID.randomUUID().toString();
-		this.type = accountType;
-		this.balance = initialBalance;
-		this.interestRate = 0;
-		this.penalty = 0;
-		this.status = "active";
-		this.dateOpen = new Date();
+		this.setType(accountType);
+		this.setBalance(initialBalance);
+		this.setInterestRate(0);
+		this.setPenalty(0);
+		this.setStatus("active");
+		this.setDateOpen(new Date());
 		
 		String sql = "INSERT INTO bank1017.account ";
 		sql += "(accountID,type,balance,interestRate,penalty,status,dateOpen) ";
 		sql += " VALUES ";
 		sql += "('" + this.accountID + "', ";
-		sql += "'" + this.type + "', ";
-		sql += this.balance + ", ";
-		sql += this.interestRate + ", ";
-		sql += this.penalty + ", ";
-		sql += "'" + this.status + "', ";
+		sql += "'" + this.getType() + "', ";
+		sql += this.getBalance() + ", ";
+		sql += this.getInterestRate() + ", ";
+		sql += this.getPenalty() + ", ";
+		sql += "'" + this.getStatus() + "', ";
 		sql += "CURDATE());";
 		
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		db.executeQuery(sql);
 	}
 	
 	void addAccountOwner(Customer accountOwner){
-		accountOwners.add(accountOwner);
+		this.getAccountOwners().add(accountOwner);
 	}
 	
 	
 	public void withdraw(double amount){
-		this.balance -= amount;
-		createTransaction(this.accountID, this.type, amount, this.balance);
+		this.setBalance(this.getBalance() - amount);
+		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
 	
 	
 	public void deposit(double amount){
-		this.balance += amount;
-		createTransaction(this.accountID, this.type, amount, this.balance);
+		this.setBalance(this.getBalance() + amount);
+		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
 	
 	private void updateDatabaseAccountBalance(){
-		String sql = "UPDATE bank1017.account SET balance = " + this.balance + " ";
+		String sql = "UPDATE bank1017.account SET balance = " + this.getBalance() + " ";
 		sql += "WHERE accountID = '" + this.accountID + "';";
 		
-		DbUtilities db = new DbUtilities();
+		MySqlUtilities db = new MySqlUtilities();
 		db.executeQuery(sql);
 	}
 	
 	private Transaction createTransaction(String transactionID){
 		Transaction t = new Transaction(transactionID);
-		transactionList.add(t);
+		getTransactionList().add(t);
 		return t;
 	}
 	
 	private Transaction createTransaction(String accountID, String type, double amount, double balance){
 		Transaction t = new Transaction(accountID, type, amount, balance);
-		transactionList.add(t);
+		getTransactionList().add(t);
 		return t;
 	}
 	
@@ -143,6 +146,51 @@ public class Account {
 	
 	public double getBalance(){
 		return this.balance;
+	}
+	public ArrayList<Customer> getAccountOwners() {
+		return accountOwners;
+	}
+	public void setAccountOwners(ArrayList<Customer> accountOwners) {
+		this.accountOwners = accountOwners;
+	}
+	public ArrayList<Transaction> getTransactionList() {
+		return transactionList;
+	}
+	public void setTransactionList(ArrayList<Transaction> transactionList) {
+		this.transactionList = transactionList;
+	}
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+	public double getInterestRate() {
+		return interestRate;
+	}
+	public void setInterestRate(double interestRate) {
+		this.interestRate = interestRate;
+	}
+	public double getPenalty() {
+		return penalty;
+	}
+	public void setPenalty(double penalty) {
+		this.penalty = penalty;
+	}
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+	public Date getDateOpen() {
+		return dateOpen;
+	}
+	public void setDateOpen(Date dateOpen) {
+		this.dateOpen = dateOpen;
 	}
 	
 }

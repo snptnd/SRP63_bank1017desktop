@@ -10,7 +10,7 @@ import java.util.UUID;
 import javax.swing.JOptionPane;
 
 import edu.pitt.utilities.MySqlUtilities;
-
+import edu.pitt.utilities.DbUtilities;
 
 /**
  * 
@@ -42,7 +42,7 @@ public class Account {
 	public Account(String accountID){
 		String sql = "SELECT * FROM srp63_bank1017.account "; 
 		sql += "WHERE accountID = '" + accountID + "'";
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while(rs.next()){
@@ -55,18 +55,19 @@ public class Account {
 				this.setDateOpen(new Date());
 			}
 		} catch (SQLException e) {
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
+			ErrorLogger.log(e.getMessage());
 		}
 		
 		String sql2 = "SELECT * FROM srp63_bank1017.transaction ";
 		sql2 += "WHERE accountID = '" + accountID + "';";
-		System.out.println(sql2);
 		try {
 			ResultSet rs = db.getResultSet(sql2);
 			while(rs.next()){
 				this.transactionID = rs.getString("transactionID");
 				createTransaction(transactionID);
 			}
+			db.closeDbConnection();
 		} catch (SQLException e) {
 			ErrorLogger.log("SQL error");
 			ErrorLogger.log(e.getMessage());
@@ -74,7 +75,7 @@ public class Account {
 		}
 		
 	}
-	/*
+	/**
 	 * Overloads the above method and creates an object of type account which is inserted into the database.
 	 * 
 	 */
@@ -98,97 +99,189 @@ public class Account {
 		sql += "'" + this.getStatus() + "', ";
 		sql += "CURDATE());";
 		
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		db.executeQuery(sql);
+		db.closeDbConnection();
 	}
-	
+	/**
+	 * 
+	 * @param accountOwner used to add account owners to the arraylist
+	 */
 	void addAccountOwner(Customer accountOwner){
 		this.getAccountOwners().add(accountOwner);
 	}
 	
-	
+	/**
+	 * 
+	 * @param amount used to withdraw funds from an account
+	 * withdraws funds and creates a transaction in the process
+	 */
 	public void withdraw(double amount){
 		this.setBalance(this.getBalance() - amount);
 		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
 	
-	
+	/**
+	 * 
+	 * @param amount used to deposit funds from an account
+	 * deposits funds and creates a transaction in the process
+	 */
 	public void deposit(double amount){
 		this.setBalance(this.getBalance() + amount);
 		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
-	
+	/**
+	 * used to update the account balance after withdrawals and deposits are made
+	 */
 	private void updateDatabaseAccountBalance(){
 		String sql = "UPDATE srp63_bank1017.account SET balance = " + this.getBalance() + " ";
 		sql += "WHERE accountID = '" + this.accountID + "';";
 		
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		db.executeQuery(sql);
+		db.closeDbConnection();
 	}
-	
+	/**
+	 * 
+	 * @param transactionID needed to create a new transaction
+	 * @return returns the new transaction object
+	 */
 	private Transaction createTransaction(String transactionID){
 		Transaction t = new Transaction(transactionID);
 		getTransactionList().add(t);
 		return t;
 	}
-	
+	/**
+	 * creates a new transaction using the below parameters
+	 * @param accountID 
+	 * @param type
+	 * @param amount
+	 * @param balance
+	 * @return returns the new transaction object
+	 */
 	private Transaction createTransaction(String accountID, String type, double amount, double balance){
 		Transaction t = new Transaction(accountID, type, amount, balance);
 		getTransactionList().add(t);
 		return t;
 	}
-	
+	/**
+	 * 
+	 * @return returns the account ID associated with this Account
+	 */
 	public String getAccountID(){
 		return this.accountID;
 	}
-	
+	/**
+	 * 
+	 * @return returns the balance associated with this Account
+	 */
 	public double getBalance(){
 		return this.balance;
 	}
+	/**
+	 * 
+	 * @return returns the customers associated with this Account
+	 */
 	public ArrayList<Customer> getAccountOwners() {
 		return accountOwners;
 	}
+	/**
+	 * 
+	 * @param accountOwners sets the customers that own this account
+	 */
 	public void setAccountOwners(ArrayList<Customer> accountOwners) {
 		this.accountOwners = accountOwners;
 	}
+	/**
+	 * 
+	 * @return returns the transactions associated with this Account
+	 */
 	public ArrayList<Transaction> getTransactionList() {
 		return transactionList;
 	}
+	/**
+	 * 
+	 * @param transactionList sets the transactions associated with this account
+	 */
 	public void setTransactionList(ArrayList<Transaction> transactionList) {
 		this.transactionList = transactionList;
 	}
+	/**
+	 * 
+	 * @return returns the type of this Account
+	 */
 	public String getType() {
 		return type;
 	}
+	/**
+	 * 
+	 * @param type sets the type of this account
+	 */
 	public void setType(String type) {
 		this.type = type;
 	}
+	/**
+	 * sets the balance of this account
+	 * @param balance
+	 */
 	public void setBalance(double balance) {
 		this.balance = balance;
 	}
+	/**
+	 * 
+	 * @return returns the interest rate associated with this Account
+	 */
 	public double getInterestRate() {
 		return interestRate;
 	}
+	/**
+	 * 
+	 * @param interestRate sets the interest rate of this account
+	 */
 	public void setInterestRate(double interestRate) {
 		this.interestRate = interestRate;
 	}
+	/**
+	 * 
+	 * @return returns the penalty associated with this Account
+	 */
 	public double getPenalty() {
 		return penalty;
 	}
+	/**
+	 * 
+	 * @param penalty sets the penalty of this account
+	 */
 	public void setPenalty(double penalty) {
 		this.penalty = penalty;
 	}
+	/**
+	 * 
+	 * @return returns the status associated with this Account
+	 */
 	public String getStatus() {
 		return status;
 	}
+	/**
+	 * 
+	 * @param status sets the status of the account
+	 */
 	public void setStatus(String status) {
 		this.status = status;
 	}
+	/**
+	 * 
+	 * @return returns the date this account was opened
+	 */
 	public Date getDateOpen() {
 		return dateOpen;
 	}
+	/**
+	 * 
+	 * @param dateOpen sets the open date of an account
+	 */
 	public void setDateOpen(Date dateOpen) {
 		this.dateOpen = dateOpen;
 	}

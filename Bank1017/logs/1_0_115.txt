@@ -1,0 +1,144 @@
+Sun Feb 15 13:21:07 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '01b9f986-5d41-11e3-94ef-97beef767f1d'' at line 1
+Sun Feb 15 13:21:07 EST 2015|SELECT fk_accountID FROM srp63_bank1017.customer_accountWHERE fk_customerID = '01b9f986-5d41-11e3-94ef-97beef767f1d';
+Sun Feb 15 13:27:47 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '(fk_customerID = '01b9f986-5d41-11e3-94ef-97beef767f1d')' at line 1
+Sun Feb 15 13:27:47 EST 2015|SELECT fk_accountID FROM srp63_bank1017.customer_accountWHERE (fk_customerID = '01b9f986-5d41-11e3-94ef-97beef767f1d');
+Sun Feb 15 13:34:01 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '= '01b9f986-5d41-11e3-94ef-97beef767f1d'' at line 1
+Sun Feb 15 13:34:01 EST 2015|SELECT fk_accountID FROM srp63_bank1017.customer_accountWHERE fk_customerID = '01b9f986-5d41-11e3-94ef-97beef767f1d';
+Sun Feb 15 18:29:44 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:29:44 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('7200889a-88f1-4b62-b0a1-55c791310d9f', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 52.0, CURDATE(), 'checking', 4548511.0);
+Sun Feb 15 18:30:44 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:30:44 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('2d9ef278-53d7-4e4a-b118-cf11a55b64d8', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.01, CURDATE(), 'checking', 4548425.99);
+Sun Feb 15 18:33:44 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:33:44 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('316eca39-5d80-45d2-b237-43d975699aa4', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 23.0, CURDATE(), 'checking', 4548448.99);
+Sun Feb 15 18:45:13 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:13 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('bffa1274-a68c-4c30-ae1d-21176f426ec5', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.1, CURDATE(), 'checking', 4548534.09);
+Sun Feb 15 18:45:26 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:26 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('3c9441d2-acac-4a1c-92f2-a831ae5c0dae', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8445.1, CURDATE(), 'checking', 4556979.1899999995);
+Sun Feb 15 18:45:29 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:29 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('a2460482-ad73-4024-adfa-adaf3bc5d719', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8445.1, CURDATE(), 'checking', 4565424.289999999);
+Sun Feb 15 18:45:30 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:30 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('0b06b1a7-78b6-4040-b2d3-1aa80063cc5a', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8445.1, CURDATE(), 'checking', 4573869.389999999);
+Sun Feb 15 18:45:31 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:31 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('60612767-1a9f-4f2f-832c-b464d6bfe039', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8445.1, CURDATE(), 'checking', 4582314.489999998);
+Sun Feb 15 18:45:32 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:45:32 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('07935a0a-c62f-4c46-9cb2-b7dad22e5df6', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8445.1, CURDATE(), 'checking', 4590759.589999998);
+Sun Feb 15 18:46:58 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:46:58 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('f38e75d4-6de8-4953-b4ef-c6f0234bc778', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590840.79);
+Sun Feb 15 18:47:07 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:07 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('fe7ad991-a624-4c4d-a273-f9d023f67a3c', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590759.59);
+Sun Feb 15 18:47:09 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:09 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('04db0139-8594-4023-a3db-1093bf4fdcbc', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590678.39);
+Sun Feb 15 18:47:11 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:11 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('7a8f212d-2eb2-48ea-9e4a-0740a94fa6eb', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590597.1899999995);
+Sun Feb 15 18:47:12 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:12 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('6cee0c1f-3f16-49f8-9156-e853cad8b0f8', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590515.989999999);
+Sun Feb 15 18:47:13 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:13 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('d2cc441a-2f6e-4f2d-bafb-d5346f7d8460', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590434.789999999);
+Sun Feb 15 18:47:14 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:14 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('13c0fca0-5b1c-4391-b6ba-26d4b1e9b991', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590353.589999999);
+Sun Feb 15 18:47:14 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:14 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('a8c083c1-6478-4d74-8278-c26e3b080d93', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590272.389999999);
+Sun Feb 15 18:47:15 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:15 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('2a43b196-9e56-4dbd-99ab-bccee74040d0', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590191.189999999);
+Sun Feb 15 18:47:16 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:16 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('f7660993-c249-439b-b614-fdf8842cd474', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 81.2, CURDATE(), 'checking', 4590109.989999998);
+Sun Feb 15 18:47:19 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:19 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('590d0496-7488-413c-be23-c04137212ee4', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 844441.2, CURDATE(), 'checking', 3745668.789999998);
+Sun Feb 15 18:47:20 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:20 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('dcab7229-df17-498c-abc1-5411167c6572', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 844441.2, CURDATE(), 'checking', 2901227.589999998);
+Sun Feb 15 18:47:21 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 18:47:21 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('855746e3-4a35-4cce-8471-3d586af98975', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 844441.2, CURDATE(), 'checking', 2056786.389999998);
+Sun Feb 15 19:04:00 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:04:00 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('ee1b3484-376c-45dd-9949-cde82c746ea4', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 23.01, CURDATE(), 'checking', 2056763.38);
+Sun Feb 15 19:04:03 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:04:03 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('ae7fc859-fa5c-4ff6-8657-fa3bb9922448', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 23.01, CURDATE(), 'checking', 2056740.3699999999);
+Sun Feb 15 19:04:11 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:04:12 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('3ca3682e-7d17-454c-85d3-b8667920e430', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 23.01, CURDATE(), 'checking', 2056717.3599999999);
+Sun Feb 15 19:09:00 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:09:00 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('0e12cf05-eab2-40af-8168-0d214a6584f7', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.1, CURDATE(), 'checking', 2056632.26);
+Sun Feb 15 19:09:03 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:09:03 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('9de5a35e-a2e7-4369-a2e0-cdba70d3285d', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.1, CURDATE(), 'checking', 2056547.16);
+Sun Feb 15 19:13:54 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:13:54 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('8a601990-91f6-45c2-8613-8a09f8a24f8e', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.1, CURDATE(), 'checking', 2056462.0599999998);
+Sun Feb 15 19:13:57 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:13:57 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('b8b20738-d701-4df8-a2ff-98ce6a132642', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.1, CURDATE(), 'checking', 2056376.9599999997);
+Sun Feb 15 19:14:20 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:14:20 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('8a21efe3-d854-4a52-9111-ac009e398dd2', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 3.452345234521E10, CURDATE(), 'checking', -3.452139596825E10);
+Sun Feb 15 19:18:03 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:18:03 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('0cc152fa-0a3c-44ed-ac07-3526bda73450', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.3, CURDATE(), 'checking', -3.452139605355E10);
+Sun Feb 15 19:27:19 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:27:19 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('31c49b1e-d30c-48f2-8e65-4bf8f7392b08', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 200.0, CURDATE(), 'checking', -3.452139625355E10);
+Sun Feb 15 19:27:19 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:27:19 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 200.0, -3.452139625355E10';
+Sun Feb 15 19:27:24 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:27:24 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('96f5c4be-13e2-482e-881e-b4fcf323ad03', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 200.0, CURDATE(), 'checking', -3.452139605355E10);
+Sun Feb 15 19:27:25 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:27:25 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 200.0, -3.452139605355E10';
+Sun Feb 15 19:27:32 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:27:32 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('d2ef7405-c6c5-48e6-8fda-16b6a366cf91', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 200400.0, CURDATE(), 'checking', -3.452119565355E10);
+Sun Feb 15 19:27:32 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:27:32 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 200400.0, -3.452119565355E10';
+Sun Feb 15 19:28:06 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:28:06 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('11d8d5fc-7052-4296-a1e3-810c3e7bf163', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 2.0E9, CURDATE(), 'checking', -3.2521195653550003E10);
+Sun Feb 15 19:28:07 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:28:07 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 2.0E9, -3.2521195653550003E10';
+Sun Feb 15 19:28:35 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:28:35 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('43a9e430-3949-42e2-b55f-c5eb81aae603', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 3.452354235E9, CURDATE(), 'checking', -2.906884141855E10);
+Sun Feb 15 19:28:35 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:28:35 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 3.452354235E9, -2.906884141855E10';
+Sun Feb 15 19:28:39 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:28:39 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('700195b0-3b16-4e34-80f2-808aa46972cb', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 3.452354235E9, CURDATE(), 'checking', -2.561648718355E10);
+Sun Feb 15 19:28:39 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:28:39 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 3.452354235E9, -2.561648718355E10';
+Sun Feb 15 19:30:33 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:33 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('f7d1d9c4-ebd4-4f26-b6e6-9cddaec7910f', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 800000.0, CURDATE(), 'checking', -2.561568718355E10);
+Sun Feb 15 19:30:33 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:33 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 800000.0, -2.561568718355E10';
+Sun Feb 15 19:30:36 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:36 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('8ff67c04-aa93-4305-86e8-75cd1fbd62f5', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 800000.0, CURDATE(), 'checking', -2.561488718355E10);
+Sun Feb 15 19:30:36 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:36 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 800000.0, -2.561488718355E10';
+Sun Feb 15 19:30:38 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:38 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('c3cc714b-0d1e-472d-8263-edf99bdad697', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 800000.0, CURDATE(), 'checking', -2.561408718355E10);
+Sun Feb 15 19:30:39 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:39 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 800000.0, -2.561408718355E10';
+Sun Feb 15 19:30:40 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:40 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('4658f873-d378-4198-b7b5-235aab18bf38', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 800000.0, CURDATE(), 'checking', -2.561328718355E10);
+Sun Feb 15 19:30:41 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:41 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 800000.0, -2.561328718355E10';
+Sun Feb 15 19:30:46 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:46 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('c0713195-4e1b-4499-88ef-62f1e587a7ec', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8.0E9, CURDATE(), 'checking', -1.761328718355E10);
+Sun Feb 15 19:30:46 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:46 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 8.0E9, -1.761328718355E10';
+Sun Feb 15 19:30:49 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:49 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('549b627f-9b08-446d-a07d-cc4fa8544117', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8.0E9, CURDATE(), 'checking', -9.61328718355E9);
+Sun Feb 15 19:30:49 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:49 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 8.0E9, -9.61328718355E9';
+Sun Feb 15 19:30:50 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:30:50 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('fc267d7f-a57d-452f-a7f1-bf03857156f1', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8.0E9, CURDATE(), 'checking', -1.6132871835499992E9);
+Sun Feb 15 19:30:51 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:30:51 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 8.0E9, -1.6132871835499992E9';
+Sun Feb 15 19:31:31 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:31:31 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('4a836623-da51-4f72-8992-d59e625f3d7f', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 8.0E12, CURDATE(), 'checking', 7.99838671281645E12);
+Sun Feb 15 19:31:32 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:31:32 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 8.0E12, 7.99838671281645E12';
+Sun Feb 15 19:32:03 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:32:03 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('6c77f760-8de1-421f-b3ee-e35fb042e1bf', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 90000.0, CURDATE(), 'checking', 7.99838662281645E12);
+Sun Feb 15 19:32:03 EST 2015|You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''' at line 1
+Sun Feb 15 19:32:03 EST 2015|INSERT INTO srp63_bank1017.transaction (accountID,type,amount,balance)  VALUES ('00ae9c2a-5d43-11e3-94ef-97beef767f1d', 'checking', 90000.0, 7.99838662281645E12';
+Sun Feb 15 19:56:33 EST 2015|INSERT command denied to user 'srp63'@'pool-108-32-61-166.pitbpa.fios.verizon.net' for table 'transaction'
+Sun Feb 15 19:56:33 EST 2015|INSERT INTO bank1017.transaction (transactionID, accountID, amount, transactionDate, type, balance)  VALUES ('e8b214dd-4ff3-4fa0-a615-b315acf8e7b1', '00ae9c2a-5d43-11e3-94ef-97beef767f1d', 85.2, CURDATE(), 'checking', 7.99838662273125E12);
+Sun Feb 15 19:58:16 EST 2015|SQL error
+Sun Feb 15 19:58:16 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:01:30 EST 2015|SQL error
+Sun Feb 15 20:01:30 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:03:11 EST 2015|SQL error
+Sun Feb 15 20:03:11 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:07:21 EST 2015|SQL error
+Sun Feb 15 20:07:21 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:08:21 EST 2015|SQL error
+Sun Feb 15 20:08:21 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:40:30 EST 2015|SQL error
+Sun Feb 15 20:40:30 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp
+Sun Feb 15 20:43:45 EST 2015|SQL error
+Sun Feb 15 20:43:45 EST 2015|Value '0000-00-00 00:00:00' can not be represented as java.sql.Timestamp

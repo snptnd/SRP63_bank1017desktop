@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
+import edu.pitt.utilities.DbUtilities;
+import edu.pitt.utilities.ErrorLogger;
 import edu.pitt.utilities.MySqlUtilities;
 
 /**
@@ -25,10 +27,12 @@ public class Bank {
 		loadAccounts();
 		setAccountOwners();
 	}
-	
+	/** 
+	 * used to load accounts from the database
+	 */
 	void loadAccounts() {
 		String sql = "SELECT accountID FROM srp63_bank1017.account";
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while (rs.next()) {
@@ -39,12 +43,18 @@ public class Bank {
 				accountList.add(newAccount);
 
 			}
+			db.closeDbConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
+			ErrorLogger.log(e.getMessage());
 		}
 	}
-
+/**
+ * finds a specific account in the database using its account ID
+ * @param accountID used to find the account
+ * @return returns the account
+ */
 	public Account findAccount(String accountID) {
 		Account tempAccount = new Account(null);
 		/*
@@ -66,7 +76,11 @@ public class Bank {
         return tempAccount;
 	    }
 
-
+/**
+ * used to find a specific customer in the database
+ * @param customerID used to locate the customer
+ * @return returns the customer found
+ */
 	public Customer findCustomer(String customerID) {
 		Customer tempCustomer = new Customer(null);
 
@@ -80,10 +94,12 @@ public class Bank {
         
         return tempCustomer;
 	}
-
+/**
+ * use to set the account owners of an account
+ */
 	void setAccountOwners() {
 		String sql = "SELECT cutomerID FROM srp63_bank1017.customer;";
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			while (rs.next()) {
@@ -96,9 +112,11 @@ public class Bank {
 			    instanceOfAccount.addAccountOwner(newCustomer);
 
 			}
+			db.closeDbConnection();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
+			ErrorLogger.log(e.getMessage());
 		}
 
 	}

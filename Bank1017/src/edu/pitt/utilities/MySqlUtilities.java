@@ -18,7 +18,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Dmitriy Babichenko
  * @version 1.1
  */
-public class MySqlUtilities implements DbUtilites{
+public class MySqlUtilities implements DbUtilities{
 
     private Connection conn = null; // connection object
     private String hostName = "sis-teach-01.sis.pitt.edu:3306"; // server address + port number
@@ -66,8 +66,8 @@ public class MySqlUtilities implements DbUtilites{
             // Connect to the database
             conn = DriverManager.getConnection(mySqlConn);
         } catch (Exception e) {
-            System.err.print(e.toString());
-            System.err.println("Unable to connect to database");
+        	ErrorLogger.log("nable to connect to database");
+			ErrorLogger.log(e.getMessage());
         }
     }
 
@@ -86,7 +86,6 @@ public class MySqlUtilities implements DbUtilites{
             Statement statement = conn.createStatement();
             return statement.executeQuery(sql); // Return ResultSet
         } catch (Exception e) {
-        	e.printStackTrace(); // debug
             ErrorLogger.log(e.getMessage()); // Log error
             ErrorLogger.log(sql); // Log SELECT query
         }
@@ -107,7 +106,6 @@ public class MySqlUtilities implements DbUtilites{
             statement.executeUpdate(sql); // execute query
             return true;
         } catch (Exception e) {
-        	e.printStackTrace(); // debug
             ErrorLogger.log(e.getMessage()); // Log error
             ErrorLogger.log(sql); // Log INSERT, UPDATE, DELETE query
         }
@@ -179,5 +177,26 @@ public class MySqlUtilities implements DbUtilites{
 		}
 		return new DefaultTableModel(data, columnNames);
 	}
-    
+   
+    public void closeDbConnection(){
+
+        if(conn != null){ // Check if connection object already exists
+
+       try {
+
+    conn.close();
+
+    } catch (SQLException e) {
+
+    // TODO Auto-generated catch block
+
+    	ErrorLogger.log("nable to connect to database");
+		ErrorLogger.log(e.getMessage());
+
+    }
+
+    }
+
+
+    }
 }

@@ -10,10 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 import javax.swing.JLabel;
 
+import edu.pitt.bank.Customer;
 import edu.pitt.bank.Security;
 import edu.pitt.ui.AccountDetailsUI;
+
 import java.awt.Component;
+
 import javax.swing.Box;
+
 import java.awt.Dimension;
 
 public class LoginUI extends JFrame {
@@ -58,10 +62,12 @@ public class LoginUI extends JFrame {
 		btnLogin.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				Security sec = new Security();
-				sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText()));
-				if(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())) != null){
-					AccountDetailsUI adUI = new AccountDetailsUI(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())));
+				Security sec = new Security();// create new security object so that we can use the validateLogin method
+				// create new customer object and find the object using the values provided to validateLogin method
+				Customer c = new Customer(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())).getCustomerID());
+				//sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText()));
+				if(c.getCustomerID() != null){
+					AccountDetailsUI adUI = new AccountDetailsUI(c.getCustomerID());
 					setVisible(false);
 					adUI.setVisible(true);
 				}else{
@@ -69,6 +75,13 @@ public class LoginUI extends JFrame {
 				}
 			}		
 		}); 
+		
+		btnExit.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent arg0) {	
+				System.exit(0);
+			}		
+		});
 		 
 		
 	}

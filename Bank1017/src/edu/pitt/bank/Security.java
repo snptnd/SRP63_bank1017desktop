@@ -4,6 +4,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
+import edu.pitt.utilities.DbUtilities;
+import edu.pitt.utilities.ErrorLogger;
 import edu.pitt.utilities.MySqlUtilities;
 
 public class Security {
@@ -21,28 +25,22 @@ public class Security {
 		sql += "WHERE loginName = '" + loginName + "' ";
 		sql += "and pin = " + pin + ";";
 		Customer foundCustomer = new Customer(null);
-		@SuppressWarnings("unused")
-		boolean foundMatch = false;
-		System.out.println(sql);
 		
-		MySqlUtilities db = new MySqlUtilities();
+		DbUtilities db = new MySqlUtilities();
 		try {
 			ResultSet rs = db.getResultSet(sql);
 			if(rs.next() && rs != null){
 				foundCustomer = new Customer(rs.getString("customerID"));
-				foundMatch = true;
 			}else {
-				foundMatch = false;
+				//skip
 			}
+			db.closeDbConnection();
 		} catch (SQLException e) {
 			
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
+			ErrorLogger.log(e.getMessage());
 		}
-		if(foundMatch = true){
 		return foundCustomer; 
-		} else {
-			return null;
-		}
 	}
 	
 	public ArrayList<String> listUserGroups(String userID){

@@ -21,7 +21,7 @@ public class Test {
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			ErrorLogger.log("SQL error");
 			ErrorLogger.log(e.getMessage());
 		}
 */

@@ -3,6 +3,8 @@ package edu.pitt.bank;
 //import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.swing.JOptionPane;
+
 import edu.pitt.ui.AccountDetailsUI;
 import edu.pitt.ui.LoginUI;
 import edu.pitt.utilities.MySqlUtilities;
@@ -11,6 +13,7 @@ import edu.pitt.utilities.ErrorLogger;
 public class Test {
 
 	public static void main(String[] args) {
+		
 		/*MySqlUtilities db = new MySqlUtilities();
 		String sql = "SELECT * FROM srp63_bank1017.account;";
 		try {

@@ -64,15 +64,20 @@ public class LoginUI extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				Security sec = new Security();// create new security object so that we can use the validateLogin method
 				// create new customer object and find the object using the values provided to validateLogin method
-				Customer c = new Customer(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())).getCustomerID());
-				//sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText()));
-				if(c.getCustomerID() != null){
-					AccountDetailsUI adUI = new AccountDetailsUI(c.getCustomerID());
-					setVisible(false);
-					adUI.setVisible(true);
+				if(txtPass.getText().matches("[0-9]+") && txtPass.getText().length() == 4){
+					Customer c = new Customer(sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText())).getCustomerID());
+					//sec.validateLogin(txtUserName.getText(), Integer.parseInt(txtPass.getText()));
+					if(c.getCustomerID() != null){
+						AccountDetailsUI adUI = new AccountDetailsUI(c.getCustomerID());
+						setVisible(false);
+						adUI.setVisible(true);
+					}else{
+						JOptionPane.showMessageDialog(null, "invalid account credintials");
+					}
 				}else{
-					JOptionPane.showMessageDialog(null, "invalid account credintials");
+					JOptionPane.showMessageDialog(null, "Pin must be 4 numbers");
 				}
+				
 			}		
 		}); 
 		

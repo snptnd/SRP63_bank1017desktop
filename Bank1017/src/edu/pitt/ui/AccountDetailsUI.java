@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import edu.pitt.bank.Account;
 import edu.pitt.bank.Customer;
 import edu.pitt.bank.Security;
+import edu.pitt.utilities.ErrorLogger;
 
 /**
  * 
@@ -44,11 +45,11 @@ public class AccountDetailsUI extends JFrame {
 		user.retrieveAccountsOwned();// use this to check database for accounts owned by this customer
 		userAccount = new Account(user.getAccountsOwned().get(0).getAccountID());
 		JLabel lblNewLabel = new JLabel(user.getFirstName() + " " + user.getLastName() + " , welcome to 1017 bank. You have the following permissions in");
-		lblNewLabel.setBounds(30, 11, 382, 14);
+		lblNewLabel.setBounds(30, 11, 444, 14);
 		getContentPane().add(lblNewLabel);
 		
 		JLabel lblThisSystemAdministrator = new JLabel("this system; Administrator, Branch Manager, Customer");
-		lblThisSystemAdministrator.setBounds(30, 27, 327, 14);
+		lblThisSystemAdministrator.setBounds(30, 27, 444, 14);
 		getContentPane().add(lblThisSystemAdministrator);
 		comboBox.setBounds(118, 63, 239, 20);
 		getContentPane().add(comboBox);
@@ -66,35 +67,35 @@ public class AccountDetailsUI extends JFrame {
 		getContentPane().add(lblAccountType);
 		
 		lblBalance = new JLabel("Balance: " + userAccount.getBalance());
-		lblBalance.setBounds(30, 134, 106, 14);
+		lblBalance.setBounds(30, 134, 184, 14);
 		getContentPane().add(lblBalance);
 		
 		lblInterestRate = new JLabel("Interest rate: " + userAccount.getInterestRate());
-		lblInterestRate.setBounds(30, 149, 106, 14);
+		lblInterestRate.setBounds(30, 149, 144, 14);
 		getContentPane().add(lblInterestRate);
 		
 		lblPenalty = new JLabel("Penalty: " + userAccount.getPenalty());
-		lblPenalty.setBounds(30, 159, 127, 20);
+		lblPenalty.setBounds(30, 159, 144, 20);
 		getContentPane().add(lblPenalty);
 		
 		lblAmount = new JLabel("Amount: ");
-		lblAmount.setBounds(146, 132, 55, 19);
+		lblAmount.setBounds(224, 132, 55, 19);
 		getContentPane().add(lblAmount);
 		
-		txtAmount.setBounds(193, 131, 164, 20);
+		txtAmount.setBounds(277, 131, 164, 20);
 		getContentPane().add(txtAmount);
 		txtAmount.setColumns(10);
 		
 		JButton btnDeposit = new JButton("Deposit");
-		btnDeposit.setBounds(169, 158, 89, 23);
+		btnDeposit.setBounds(247, 158, 89, 23);
 		getContentPane().add(btnDeposit);
 		
 		JButton btnWithdraw = new JButton("Withdraw");
-		btnWithdraw.setBounds(268, 158, 89, 23);
+		btnWithdraw.setBounds(352, 158, 89, 23);
 		getContentPane().add(btnWithdraw);
 		
 		JButton btnShowTransaction = new JButton("Show Transactions");
-		btnShowTransaction.setBounds(130, 214, 144, 23);
+		btnShowTransaction.setBounds(247, 214, 144, 23);
 		
 		btnShowTransaction.addActionListener(new ActionListener(){
 			@Override
@@ -109,14 +110,14 @@ public class AccountDetailsUI extends JFrame {
 	                frame.setLocationRelativeTo(null);
 	                frame.setVisible(true);
 				} else {
-					System.out.println("Account object must not be null");
+					ErrorLogger.log("AccountDetailsUI.Java: actionPerformed - account object cannot be null");
 				}
 			}		
 		});
 		getContentPane().add(btnShowTransaction);
 		
 		JButton btnExit = new JButton("Exit");
-		btnExit.setBounds(284, 214, 73, 23);
+		btnExit.setBounds(401, 214, 73, 23);
 		
 		comboBox.addActionListener(new ActionListener(){
 			Account tempAccount = new Account(comboBox.getSelectedItem().toString());
@@ -130,36 +131,39 @@ public class AccountDetailsUI extends JFrame {
 		});
 		
 		btnWithdraw.addActionListener(new ActionListener(){
-			Double holder;
+			@SuppressWarnings("unused")
+			String holder;
 			Account tempAccount = new Account(comboBox.getSelectedItem().toString());
 			@Override
 			public void actionPerformed(ActionEvent arg0){
-				holder = Double.parseDouble(txtAmount.getText());
-				//System.out.println("Holder = '" + holder + "'");
-				userAccount.withdraw(holder);
-				//System.out.println("withdraw done");
-				//System.out.println("label amount = " + lblBalance.getText());
-				lblBalance.setText("Balance: " + tempAccount.getBalance());
-				lblBalance.paintImmediately(lblBalance.getVisibleRect());
-				//System.out.println("label set");
-				//System.out.println("label amount = " + lblBalance.getText());
+				holder = txtAmount.getText().replace(".", "");
+				if(txtAmount.getText().replace(".", "").matches("[0-9]+")){
+					userAccount.withdraw(Double.parseDouble(txtAmount.getText()));
+					lblBalance.setText("Balance: " + tempAccount.getBalance());
+					lblBalance.paintImmediately(lblBalance.getVisibleRect());
+					// this wont update!!! why???
+				}else{
+					JOptionPane.showMessageDialog(null, "Amount must be numerical");
+				}
+
 			}		
 		});
 		
 		btnDeposit.addActionListener(new ActionListener(){
-			Double holder;
+			@SuppressWarnings("unused")
+			String holder;
 			Account tempAccount = new Account(comboBox.getSelectedItem().toString());
 			@Override
 			public void actionPerformed(ActionEvent arg0){	
-				holder = Double.parseDouble(txtAmount.getText());
-				//System.out.println("Holder = '" + holder + "'");
-				userAccount.deposit(holder);
-				//System.out.println("withdraw done");
-				//System.out.println("label amount = " + lblBalance.getText());
-				lblBalance.setText("Balance: " + tempAccount.getBalance());
-				lblBalance.paintImmediately(lblBalance.getVisibleRect());
-				//System.out.println("label set");
-				//System.out.println("label amount = " + lblBalance.getText());
+				holder = txtAmount.getText().replace(".", "");
+				if(txtAmount.getText().replace(".", "").matches("[0-9]+")){
+					userAccount.deposit(Double.parseDouble(txtAmount.getText()));
+					lblBalance.setText("Balance: " + tempAccount.getBalance());
+					lblBalance.paintImmediately(lblBalance.getVisibleRect());
+					// this wont update!!! why???
+				}else{
+					JOptionPane.showMessageDialog(null, "Amount must be numerical");
+				}
 			}		
 		});
 		

@@ -118,7 +118,7 @@ public class Account {
 	 */
 	public void withdraw(double amount){
 		this.setBalance(this.getBalance() - amount);
-		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
+		createTransaction(this.accountID, "Withdrawal", amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
 	
@@ -129,7 +129,7 @@ public class Account {
 	 */
 	public void deposit(double amount){
 		this.setBalance(this.getBalance() + amount);
-		createTransaction(this.accountID, this.getType(), amount, this.getBalance());
+		createTransaction(this.accountID, "Deposit", amount, this.getBalance());
 		updateDatabaseAccountBalance();
 	}
 	/**

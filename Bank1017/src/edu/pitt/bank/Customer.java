@@ -58,7 +58,7 @@ public class Customer {
 	public Customer(String customerID) {
 		String sql = "SELECT * FROM srp63_bank1017.customer ";
 		sql += "WHERE customerID = '" + customerID + "';";
-		System.out.println(sql);
+		
 		DbUtilities db = new MySqlUtilities();
 		try {
 			if (customerID != null) {
@@ -137,7 +137,7 @@ public class Customer {
  * @return returns accounts owned by a customer
  */
 	public ArrayList<Account> retrieveAccountsOwned() {
-		System.out.println("Method was called");
+		
 		String sql = "SELECT fk_accountID FROM srp63_bank1017.customer_account ";
 		sql += "WHERE fk_customerID = '" + this.customerID + "';";
 
@@ -146,9 +146,9 @@ public class Customer {
 			ResultSet rs = db.getResultSet(sql);
 			while (rs.next()) {
 				Account foundAccount = new Account(rs.getString("fk_accountID"));
-				System.out.println(this.accountsOwned.size());
+				
 				this.accountsOwned.add(foundAccount);
-				System.out.println(this.accountsOwned.size());
+				;
 			}
 			db.closeDbConnection();
 		} catch (SQLException e) {
